@@ -46,19 +46,22 @@ if (speech.isSupported.value) {
 }
 
 const sampled = ref<string[]>([])
+const { isListening, isSupported, stop, result } = speech
 
 function start() {
   color.value = 'transparent'
   speech.result.value = ''
   sampled.value = sample(colors, 5)
+  const isl = isListening.value
+  console.log(isl, 'start0')
   speech.start()
+  const is2 = isListening.value
+  console.log(is2, 'start1')
 }
 
-const { isListening, isSupported, stop, result } = speech
-
 const selectedLanguage = ref(lang.value)
-watch(lang, lang => isListening.value ? null : selectedLanguage.value = lang)
-watch(isListening, isListening => isListening ? null : selectedLanguage.value = lang.value)
+// watch(lang, lang => isListening.value ? null : selectedLanguage.value = lang)
+// watch(isListening, isListening => isListening ? null : selectedLanguage.value = lang.value)
 </script>
 
 <template>

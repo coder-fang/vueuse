@@ -101,10 +101,10 @@ export function useSpeechRecognition(options: UseSpeechRecognitionOptions = {}) 
       error.value = event
     }
 
-    recognition.onend = () => {
-      isListening.value = false
-      recognition!.lang = toValue(lang)
-    }
+    // recognition.onend = () => {
+    //   isListening.value = false
+    //   recognition!.lang = toValue(lang)
+    // }
 
     watch(isListening, () => {
       if (isListening.value)
